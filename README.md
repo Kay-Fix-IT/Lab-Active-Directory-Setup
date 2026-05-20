@@ -1,9 +1,13 @@
 \# Lab: Active Directory Domain Controller Configuration
 
+
 ## Objective
+
+
 This lab project implements a functional Windows Server 2022 environment to replicate a standard small-to-medium enterprise (SME) network. The objective is to demonstrate proficiency in deploying Active Directory Domain Services (AD DS), managing domain-wide security policies, and establishing core infrastructure services.
 
 ## Technology used
+
 
 \*\*OS\*\* Windows Server 2022, Windows version 11 2h22
 \*\*Hypervisor\*\* Oracle VirtualBox
@@ -15,6 +19,7 @@ This lab project implements a functional Windows Server 2022 environment to repl
 The lab environment consists of three virtual machines communication over an isolated internal network named "kintnet"
 
 ## Server Configuration
+
 
 \*\*Kays Enterprise Server (Domain Controller)\*\* Windows Server 2022. AD DS. DNS. Static IP:192.168.0.1/24.
 \*\*WS01-Client (Workstation)\*\* Windows 11 Pro. Static IP:192.168.0.5/24.
