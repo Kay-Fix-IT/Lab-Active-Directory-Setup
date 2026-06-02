@@ -4,13 +4,13 @@
 * **Network:** Internal Network "Kintnet"
 
 ## Step-by-Step Installation
-1. **Edition:** Windows 11 Pro
-2. **VM Creation:** Allocated 4GB RAM, 2 CPU cores, and 80GB dynamically allocated storage.
-3. **Network Configuration:** Set adapter to "Internal Network" (Kintnet).
-4. **OS Installation:** Performed standard install of Windows 11 Pro.
+   1. **Edition:** Windows 11 Pro
+   2. **VM Creation:** Allocated 4GB RAM, 2 CPU cores, and 80GB dynamically allocated storage.
+   3. **Network Configuration:** Set adapter to "Internal Network" (Kintnet).
+   4. **OS Installation:** Performed standard install of Windows 11 Pro.
 
 ## Installation Workarounds
-- **Bypassing Network Requirements:**
+* **Bypassing Network Requirements:**
   1. At the initial setup screen, press `Shift + F10` to open the Command Prompt.
   2. Type the following command and press Enter:
      
