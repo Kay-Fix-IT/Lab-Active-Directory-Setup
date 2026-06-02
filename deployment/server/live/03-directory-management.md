@@ -25,7 +25,7 @@
 * **Objective:** Creating a new user, Jsmith, for the standard employees department
 * **Commands:**
   ```powershell
-  $Password = ConvertTo-SecureString "SecureStart2026!" AsPlainText !Force
+  $Password = ConvertTo-SecureString "<Password>" AsPlainText !Force
      New-ADUser -Name "<Full_Name>" `
            -GivenName "<First_Name>" `
            -Surname "<Last_Name>" `
@@ -38,16 +38,16 @@
   ```
   * **Lab Context:**
     ```powershell
-    \$Password = ConvertTo-SecureString "SecureStart2026!" -AsPlainText -Force
+    $Password = ConvertTo-SecureString "SecureStart2026!" -AsPlainText -Force
     New-ADUser -Name "John Smith" `
          -GivenName "John" `
          -Surname "Smith" `
          -SamAccountName "jsmith" `
          -UserPrincipalName "jsmith@klab.local" `
          -Path "OU=Standard-Employees,OU=KLAB-Enterprise,DC=klab,DC=local" `
-         -AccountPassword \$Password `
+         -AccountPassword $Password `
          -Enabled $true `
-         -ChangePasswordAtLogon \$true
+         -ChangePasswordAtLogon $true
     ```
 ---
 ### Troubleshooting
