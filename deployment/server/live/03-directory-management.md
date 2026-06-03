@@ -52,4 +52,3 @@
 ---
 ### Troubleshooting
 * [OU Creation Errors](../../troubleshooting/ad-management/ou-creation-errors.md)
-* [OU Creation Errors](troubleshooting/ad-management/ou-creation-errors.md)
