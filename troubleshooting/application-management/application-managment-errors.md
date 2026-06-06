@@ -18,7 +18,7 @@
      * Restart the worksation Vm.
      * Try to install the RSAT tool again
      * Change the network settings and the adapter type back to the domain internal network
-     * Restart the worksation vm and setup preferred static addresses, DNS, and gateway [Worksation2 installation guide](Lab-Active-Directory-Setup\deployment\workstations\live)
+     * Restart the worksation vm and setup preferred static addresses, DNS, and gateway [Worksation2 installation guide](..\..\deployment\workstations\live\02-workstation-two-post-installation-guide.md)
 
 4. Prevention
    * Future lab builds that requires Features on demand should have temporary internet connection enabled or utilize an offline feauture on demand iso media mounted on the vm. 
