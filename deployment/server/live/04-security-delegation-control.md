@@ -47,10 +47,33 @@
   * **Commands:**
   ```powershell
   $OUPath = "OU=Department_Name,OU=OU_Name,DC=Domain,DC=TLD"
-  dsacls $OUPath /G "<NETBIOS_Domain_Name\<Group_Name>:<Permissions>"
+  dsacls $OUPath  /I:S /G "<NETBIOS_Domain_Name\<Group_Name>:<Permissions>"
   ```
+  
   * **Lab Context:**
     ```powershell
     $OUPath = "OU=Standard-Employees,OU=Klab-Enterprise,DC=klab,DC=local"
-    dsacls $OUPath /G "KLAB\HelpDesk_Admins:RPWP"
+    dsacls $OUPath /I:S /G "KLAB\HelpDesk_Admins:LCRP;;user"
+    dsacls $OUPath /I:S /G "KLAB\HelpDesk_Admins:CA;Reset Password;user"
+    dsacls $OUPath /I:S /G "KLAB\HelpDesk_Admins:CA;Change Password;user"
+    dsacls $OUPath /I:S /G "KLAB\HelpDesk_Admins:WP;pwdLastSet;user"
+    dsacls $OUPath /I:S /G "KLAB\HelpDesk_Admins:wp;userAccountControl;user"
     ```
+
+# Verification:
+  * Reset Password
+    * **Steps:**
+      * Log into workstation with with RSAT tool: Active Directory USers and Computers (ADUC)
+        * **Lab Context:** `WS02`
+      * Search for Active Directory Users and Computers in the search engine
+      * Select and open the ADUC tool
+      * Navigate to the preferred user, right click on the SaMAccountName
+        * **Lab Context:** `jsmith`
+      * Select **reset password**
+      * Enter a new password and reenter for confirmation
+      * Select **User must change password at next logon**
+      * Select **Ok**
+      * Log into a workstation as user
+        * **Lab Context:** `WS01, jsmith`
+      * Verify that password was reset and input the new password
+        * *Note:* Succes
