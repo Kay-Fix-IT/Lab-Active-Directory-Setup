@@ -21,22 +21,20 @@
       ``` 
 
 ## Configure Security Filtering
-* **Objective:** Assign a group, `GPO_Admins`, priviledges to read and apply group policy
+* **Objective:** Assign a group, `HR`, privileges to read and apply group policy
 * **Command:**
   ```powershell
-  # GpoApply grants the permission for the group to read and accept group policy
+  # Grant apply permission to target group
   Set-GPPermission -Name "<GPO_Name>" -TargetName "Group_Name" -TargetType <Group_Type> -PermissionLevel <Permission_Level>
 
-  # Restricts Autheticated Users to simply read to prevent other users in the domain from accepting the policy
-  Set-GPPermission -Name "Map_Resources_Drive" -TargetName "Authenticated Users" -TargetType Group -PermissionLevel GpoRead
+  # Downgrade Authenticated users to read-only to prevent all users from applying policy
+  Set-GPPermission -Name "Map_Resources_Drive" -TargetName "Authenticated Users" -TargetType Group -PermissionLevel GpoRead -Replace
   ```
   * **Lab Context:**
     ```powershell
-    # GpoApply grants the permission for the group to read and accept group policy
     Set-GPPermission -Name "Map_Resources_Drive" -TargetName "HR" -TargetType Group -PermissionLevel GpoApply
 
-    # Restricts Autheticated Users to simply read to prevent other users in the domain from accepting the policy
-    Set-GPPermission -Name "Map_Resources_Drive" -TargetName "Authenticated Users" -TargetType Group -PermissionLevel GpoRead
+    Set-GPPermission -Name "Map_Resources_Drive" -TargetName "Authenticated Users" -TargetType Group -PermissionLevel GpoRead -Replace
     ```
     
 ## Delegating Organizational Unit linking rights
@@ -44,10 +42,10 @@
   * **Commands:** 
   ```powershell
   # Grant read and write properties for group policy links
-  dsacls "OU=Klab-Enterprise,DC=klab,DC=local" /I:T /G "KLAB\GPO_Admins:RPWP;gPLink;"
+  dsacls "OU=Klab-Enterprise,DC=klab,DC=local" /I:T /G "KLAB\GPO_Admins:RPWP;gPLink"
 
   # Grant read and write properties for group policy options
-  dsacls "OU=Klab-Enterprise,DC=klab,DC=local" /I:T /G "KLAB\GPO_Admins:RPWP;gPOptions;"
+  dsacls "OU=Klab-Enterprise,DC=klab,DC=local" /I:T /G "KLAB\GPO_Admins:RPWP;gPOptions"
   ```
   * *Note:* Both gPlink and gOptions must be modified because both attributes must be referenced when creating a new gPLink. 
 
